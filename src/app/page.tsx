@@ -1,4 +1,5 @@
-import Sidebar from "@/components/Sidebar";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
 import CaseStudies from "@/components/CaseStudies";
@@ -8,16 +9,17 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-7xl">
-      <Sidebar />
-      <main className="px-6 lg:ml-[42%] lg:max-w-140 lg:px-0 lg:pl-16">
+    <>
+      <Header />
+      <main className="flex-1">
+        <Hero />
         <About />
         <Experience />
         <CaseStudies />
         <Skills />
         <Contact />
-        <Footer />
       </main>
-    </div>
+      <Footer />
+    </>
   );
 }

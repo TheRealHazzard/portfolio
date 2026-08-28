@@ -1,93 +1,101 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import SectionHeading from "./SectionHeading";
 import { caseStudies } from "@/lib/data";
 
 export default function CaseStudies() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="work" className="scroll-mt-24 py-16">
-      <SectionHeading index="03" title="Selected Work" />
+    <section id="work" className="scroll-mt-20 border-b-4 border-ink">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 md:grid-cols-[auto_1fr] md:gap-16 md:py-24">
+        <span
+          className="text-[8rem] font-black leading-none text-transparent md:text-[10rem]"
+          style={{ WebkitTextStroke: "3px var(--color-ink)" }}
+        >
+          03
+        </span>
 
-      <p className="mb-8 text-sm leading-relaxed text-slate">
-        This work lives inside a production enterprise codebase, so there&apos;s
-        no public repo to point to. Here&apos;s the problem, what I did, and
-        what changed, for each one.
-      </p>
+        <div>
+          <h2 className="mb-2 font-mono text-xs font-bold uppercase tracking-widest">
+            Case Studies
+          </h2>
+          <p className="mb-8 max-w-xl text-sm leading-relaxed">
+            This work lives inside a production enterprise codebase, so
+            there&apos;s no public repo to point to. Here&apos;s the
+            problem, what I did, and what changed.
+          </p>
 
-      <ul>
-        {caseStudies.map((cs, i) => {
-          const isOpen = open === i;
-          return (
-            <li key={cs.title} className="border-b border-line last:border-0">
-              <button
-                onClick={() => setOpen(isOpen ? null : i)}
-                className="group flex w-full items-start justify-between gap-4 py-5 text-left"
-              >
-                <div>
-                  <span className="font-mono text-xs text-teal">{cs.tag}</span>
-                  <h3 className="mt-1 text-base font-medium text-ink transition-colors group-hover:text-teal">
-                    {cs.title}
-                  </h3>
-                </div>
-                <span
-                  className={`mt-1 font-mono text-lg text-slate transition-transform duration-300 ${
-                    isOpen ? "rotate-45" : ""
-                  }`}
+          <div className="grid gap-6 sm:grid-cols-2">
+            {caseStudies.map((cs, i) => {
+              const isOpen = open === i;
+              return (
+                <div
+                  key={cs.title}
+                  className="border-2 border-ink bg-white hard-shadow"
                 >
-                  +
-                </span>
-              </button>
-
-              <AnimatePresence initial={false}>
-                {isOpen && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="overflow-hidden"
+                  <button
+                    onClick={() => setOpen(isOpen ? null : i)}
+                    className="flex w-full items-start justify-between gap-3 p-5 text-left"
                   >
-                    <div className="pb-6 pl-0 pr-8">
-                      <p className="text-sm leading-relaxed text-mist">
-                        {cs.problem}
-                      </p>
-                      <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-slate">
+                    <div>
+                      <span className="border-2 border-ink bg-yellow px-2 py-0.5 font-mono text-[10px] font-bold uppercase">
+                        {cs.tag}
+                      </span>
+                      <h3 className="mt-3 text-lg font-bold leading-tight">
+                        {cs.title}
+                      </h3>
+                    </div>
+                    <span
+                      className={`flex h-8 w-8 flex-none items-center justify-center border-2 border-ink font-mono text-lg font-bold transition-transform ${
+                        isOpen ? "rotate-45 bg-red text-white" : "bg-white"
+                      }`}
+                    >
+                      +
+                    </span>
+                  </button>
+
+                  {isOpen && (
+                    <div className="border-t-2 border-ink p-5">
+                      <p className="text-sm leading-relaxed">{cs.problem}</p>
+                      <p className="mt-4 font-mono text-[10px] font-bold uppercase tracking-widest">
                         What I did
                       </p>
-                      <p className="mt-2 text-sm leading-relaxed text-mist">
+                      <p className="mt-2 text-sm leading-relaxed">
                         {cs.action}
                       </p>
-                      <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-slate">
+                      <p className="mt-4 font-mono text-[10px] font-bold uppercase tracking-widest">
                         Impact
                       </p>
                       <ul className="mt-2 space-y-1.5">
                         {cs.impact.map((line) => (
                           <li
                             key={line}
-                            className="flex items-start gap-2 text-sm text-mist"
+                            className="flex items-start gap-2 text-sm"
                           >
-                            <span className="mt-1.5 h-1 w-1 flex-none rounded-full bg-teal" />
+                            <span className="mt-1.5 h-1.5 w-1.5 flex-none bg-red" />
                             {line}
                           </li>
                         ))}
                       </ul>
-                      <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-slate">
+                      <div className="mt-4 flex flex-wrap gap-2">
                         {cs.stack.map((s) => (
-                          <span key={s}>{s}</span>
+                          <span
+                            key={s}
+                            className="border border-ink px-2 py-0.5 font-mono text-[10px] font-bold uppercase"
+                          >
+                            {s}
+                          </span>
                         ))}
                       </div>
                     </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </li>
-          );
-        })}
-      </ul>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
