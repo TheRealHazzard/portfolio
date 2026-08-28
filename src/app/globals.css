@@ -24,10 +24,6 @@ body {
   color: var(--color-yellow);
 }
 
-* {
-  border-radius: 0 !important;
-}
-
 .hard-shadow {
   box-shadow: 6px 6px 0 0 var(--color-ink);
 }
