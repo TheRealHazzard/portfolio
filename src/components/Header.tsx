@@ -1,3 +1,5 @@
+import ThemeToggle from "./ThemeToggle";
+
 const LINKS = [
   { href: "#about", label: "About" },
   { href: "#experience", label: "Work History" },
@@ -22,12 +24,15 @@ export default function Header() {
             </a>
           ))}
         </nav>
-        <a
-          href="#contact"
-          className="border-2 border-ink bg-yellow px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider transition-transform hover:-translate-y-0.5 hover:-translate-x-0.5 hard-shadow-sm"
-        >
-          Contact
-        </a>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <a
+            href="#contact"
+            className="border-2 border-ink bg-yellow px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider transition-transform hover:-translate-y-0.5 hover:-translate-x-0.5 hard-shadow-sm"
+          >
+            Contact
+          </a>
+        </div>
       </div>
     </header>
   );
