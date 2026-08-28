@@ -1,51 +1,33 @@
-import Reveal from "./Reveal";
-import { profile, stats } from "@/lib/data";
+import SectionHeading from "./SectionHeading";
+import { stats } from "@/lib/data";
 
 export default function About() {
   return (
-    <section id="about" className="mx-auto max-w-6xl px-6 py-28">
-      <Reveal>
-        <span className="font-mono text-sm text-teal">01 · About</span>
-        <h2 className="mt-3 max-w-2xl text-3xl font-bold text-ink sm:text-4xl">
-          Five years of turning ambiguous problems into shipped, scalable
-          products.
-        </h2>
-      </Reveal>
+    <section id="about" className="scroll-mt-24 py-16">
+      <SectionHeading index="01" title="About" />
 
-      <div className="mt-14 grid gap-12 md:grid-cols-2">
-        <Reveal delay={0.1}>
-          <p className="text-lg leading-relaxed text-mist">
-            I&apos;m {profile.name}, a {profile.role.toLowerCase()} currently at{" "}
-            <span className="text-ink">Tekion Corporation</span>, where I
-            grew from an intern to leading front-end architecture decisions
-            across four internal promotions. I specialize in React,
-            TypeScript, and Next.js, with a focus on systems that hold up
-            under real enterprise load, not just demo conditions.
-          </p>
-          <p className="mt-4 text-lg leading-relaxed text-mist">
-            What I actually enjoy is the unglamorous part: taking a system
-            nobody wants to touch and making it something a team can build
-            on for years. That&apos;s the thread through most of the work on
-            this page.
-          </p>
-        </Reveal>
+      <p className="text-[15px] leading-relaxed text-mist">
+        I&apos;m a senior software engineer at Tekion Corporation, where I
+        grew from an intern to leading front-end architecture decisions
+        across four internal promotions. I work mostly in React,
+        TypeScript, and Next.js, and I care about the unglamorous part of
+        the job: taking a system nobody wants to touch and turning it into
+        something a team can build on for years.
+      </p>
+      <p className="mt-4 text-[15px] leading-relaxed text-mist">
+        Enterprise software has a specific kind of hard, real users, real
+        load, real cost of getting it wrong. That&apos;s the environment
+        most of my work below comes out of.
+      </p>
 
-        <Reveal delay={0.2}>
-          <div className="grid grid-cols-2 gap-4">
-            {stats.map((s) => (
-              <div
-                key={s.label}
-                className="glow-border rounded-2xl border border-line bg-panel p-6"
-              >
-                <div className="text-gradient text-3xl font-bold">
-                  {s.value}
-                </div>
-                <div className="mt-2 text-sm text-mist">{s.label}</div>
-              </div>
-            ))}
+      <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4">
+        {stats.map((s) => (
+          <div key={s.label} className="border-l border-line pl-4">
+            <dt className="text-2xl font-semibold text-ink">{s.value}</dt>
+            <dd className="mt-1 text-xs text-slate">{s.label}</dd>
           </div>
-        </Reveal>
-      </div>
+        ))}
+      </dl>
     </section>
   );
 }
