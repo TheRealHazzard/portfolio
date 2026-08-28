@@ -17,7 +17,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="scroll-mt-20 border-b-4 border-ink bg-ink text-white">
+    <section id="contact" className="scroll-mt-20 border-b-4 border-ink bg-black text-white">
       <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
         <span className="font-mono text-xs font-bold uppercase tracking-widest text-yellow">
           05 / Contact
@@ -30,7 +30,7 @@ export default function Contact() {
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <a
             href={`mailto:${profile.email}`}
-            className="border-2 border-yellow bg-yellow px-6 py-3 font-mono text-sm font-bold uppercase text-ink transition-transform hover:-translate-y-1"
+            className="border-2 border-yellow bg-yellow px-6 py-3 font-mono text-sm font-bold uppercase text-black transition-transform hover:-translate-y-1"
           >
             {profile.email}
           </a>

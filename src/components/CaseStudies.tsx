@@ -32,14 +32,14 @@ export default function CaseStudies() {
               return (
                 <div
                   key={cs.title}
-                  className="border-2 border-ink bg-white hard-shadow"
+                  className="border-2 border-ink bg-panel hard-shadow"
                 >
                   <button
                     onClick={() => setOpen(isOpen ? null : i)}
                     className="flex w-full items-start justify-between gap-3 p-5 text-left"
                   >
                     <div>
-                      <span className="border-2 border-ink bg-yellow px-2 py-0.5 font-mono text-[10px] font-bold uppercase">
+                      <span className="border-2 border-ink bg-yellow px-2 py-0.5 font-mono text-[10px] font-bold uppercase text-black">
                         {cs.tag}
                       </span>
                       <h3 className="mt-3 text-lg font-bold leading-tight">
@@ -48,7 +48,7 @@ export default function CaseStudies() {
                     </div>
                     <span
                       className={`flex h-8 w-8 flex-none items-center justify-center border-2 border-ink font-mono text-lg font-bold transition-transform ${
-                        isOpen ? "rotate-45 bg-red text-white" : "bg-white"
+                        isOpen ? "rotate-45 bg-red text-white" : "bg-panel"
                       }`}
                     >
                       +

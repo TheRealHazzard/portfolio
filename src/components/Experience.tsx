@@ -21,7 +21,7 @@ export default function Experience() {
               <div
                 key={e.title}
                 className={`flex flex-col gap-2 border-2 border-ink p-4 sm:flex-row sm:items-center sm:justify-between ${
-                  i % 2 === 0 ? "bg-white" : "bg-yellow"
+                  i % 2 === 0 ? "bg-panel" : "bg-yellow text-black"
                 }`}
               >
                 <div className="flex items-baseline gap-4">

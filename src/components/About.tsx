@@ -33,7 +33,7 @@ export default function About() {
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="border-2 border-ink bg-white p-4 hard-shadow-sm"
+                className="border-2 border-ink bg-panel p-4 hard-shadow-sm"
               >
                 <div className="text-3xl font-black">{s.value}</div>
                 <div className="mt-1 text-xs font-bold uppercase tracking-wide">

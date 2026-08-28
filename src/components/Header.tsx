@@ -13,7 +13,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a
           href="#top"
-          className="flex h-10 w-10 items-center justify-center border-2 border-ink bg-ink font-mono text-sm font-bold text-yellow"
+          className="flex h-10 w-10 items-center justify-center border-2 border-ink bg-black font-mono text-sm font-bold text-yellow"
         >
           RT
         </a>
@@ -28,7 +28,7 @@ export default function Header() {
           <ThemeToggle />
           <a
             href="#contact"
-            className="border-2 border-ink bg-yellow px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider transition-transform hover:-translate-y-0.5 hover:-translate-x-0.5 hard-shadow-sm"
+            className="border-2 border-ink bg-yellow px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider text-black transition-transform hover:-translate-y-0.5 hover:-translate-x-0.5 hard-shadow-sm"
           >
             Contact
           </a>

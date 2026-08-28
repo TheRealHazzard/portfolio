@@ -17,7 +17,7 @@ export default function Hero() {
         </div>
 
         <div className="mt-10 flex flex-wrap items-start gap-6 sm:mt-16">
-          <div className="border-2 border-ink bg-yellow px-4 py-2 font-mono text-sm font-bold uppercase">
+          <div className="border-2 border-ink bg-yellow px-4 py-2 font-mono text-sm font-bold uppercase text-black">
             {profile.role}
           </div>
           <p className="max-w-lg text-lg leading-relaxed">{profile.blurb}</p>
