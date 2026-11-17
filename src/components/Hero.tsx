@@ -10,10 +10,6 @@ export default function Hero() {
             <br />
             Thomas
           </h1>
-
-          <div className="mt-4 rotate-2 border-2 border-ink bg-red px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider text-white hard-shadow-sm">
-            Open for freelance
-          </div>
         </div>
 
         <div className="mt-10 flex flex-wrap items-start gap-6 sm:mt-16">

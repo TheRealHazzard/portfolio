@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Robin Thomas, Senior Software Engineer",
   description:
-    "Senior Software Engineer specializing in React, TypeScript, and Next.js. Available for select freelance work.",
+    "Senior Software Engineer specializing in React, TypeScript, and Next.js. Building scalable, configuration-driven web platforms.",
 };
 
 const themeInitScript = `
