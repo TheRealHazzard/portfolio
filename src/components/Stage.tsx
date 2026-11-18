@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { asset } from "@/lib/site";
 import { projects } from "@/lib/data";
+import { Glyph } from "./Glyph";
 
 const N = projects.length;
 
@@ -47,13 +48,22 @@ export default function Stage() {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(update);
     };
+    // The palette, the dock and the number keys all ask the stage to bring a project forward.
+    const onGoto = (e: Event) => {
+      const i = Math.min(N - 1, Math.max(0, Number((e as CustomEvent<number>).detail)));
+      const range = el.offsetHeight - window.innerHeight;
+      const top = el.getBoundingClientRect().top + window.scrollY + range * ((i + 0.5) / N);
+      window.scrollTo({ top, behavior: "smooth" });
+    };
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
+    window.addEventListener("stage:goto", onGoto);
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
+      window.removeEventListener("stage:goto", onGoto);
     };
   }, []);
 
@@ -124,6 +134,22 @@ export default function Stage() {
               </a>
             </div>
           </div>
+        </div>
+
+        <div className="dock" role="group" aria-label="Apps">
+          {projects.map((p, i) => (
+            <button
+              key={p.id}
+              type="button"
+              className={`dock-btn${i === active ? " on" : ""}`}
+              data-label={p.name}
+              aria-label={`Open ${p.name}`}
+              aria-pressed={i === active}
+              onClick={() => window.dispatchEvent(new CustomEvent("stage:goto", { detail: i }))}
+            >
+              <Glyph id={p.id} />
+            </button>
+          ))}
         </div>
       </div>
     </section>

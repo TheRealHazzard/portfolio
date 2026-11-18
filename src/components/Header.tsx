@@ -1,4 +1,5 @@
 import { profile } from "@/lib/data";
+import JumpButton from "./JumpButton";
 
 const links = [
   { href: "#work", label: "Work" },
@@ -20,6 +21,7 @@ export default function Header() {
           </a>
         ))}
       </nav>
+      <JumpButton />
       <a className="btn bar-cta" href={`mailto:${profile.email}`}>
         Email
       </a>

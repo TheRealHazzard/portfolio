@@ -84,6 +84,31 @@ export const projects = [
   },
 ] as const;
 
+// More apps. Shown as tiles that open the code; they run on a home network or a device, so there is no hosted frame.
+export const more = [
+  {
+    id: "home-dashboard",
+    name: "Home dashboard",
+    code: "https://github.com/TheRealHazzard/home-dashboard",
+    image: "/work/home-dashboard.webp",
+    text: "An always-on kiosk for a mounted tablet: time, weather, tasks, quick links, lights and Spotify.",
+  },
+  {
+    id: "smart-home-dashboard",
+    name: "Smart home dashboard",
+    code: "https://github.com/TheRealHazzard/smart-home-dashboard",
+    image: "/work/smart-home.webp",
+    text: "One page that controls Hue, Tapo and Nanoleaf lights on your network. Demo mode needs no hardware.",
+  },
+  {
+    id: "this-site",
+    name: "This site",
+    code: "https://github.com/TheRealHazzard/portfolio",
+    image: "/work/portfolio.webp",
+    text: "Static Next.js with no UI library: sticky sections, figures drawn in code and live frames.",
+  },
+] as const;
+
 export const backstage = [
   {
     id: "plays",

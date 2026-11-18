@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { asset } from "@/lib/site";
 import { profile } from "@/lib/data";
+import Race from "./Race";
 
 /**
  * A card over a dim theatre. As the page scrolls, the card shrinks toward the bottom-left
@@ -52,6 +53,7 @@ export default function Hero() {
               <span>Robin</span>
               <span>Thomas</span>
             </h1>
+            <Race />
             <div className="hero-mid">
               <p className="hero-facts">
                 Senior front-end engineer

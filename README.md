@@ -10,9 +10,11 @@ Robin writes, directs and acts in plays, so the page is a stage. A frame stays p
 
 ## What is on the page
 
-- **Introduction:** a card over a dim theatre that shrinks into a ticket stub as you scroll.
+- **Introduction:** a card over a dim theatre, with a live before-and-after race (12 seconds against 5) and a card that shrinks into a ticket stub as you scroll.
 - **Work at Tekion:** four full-screen plates, each a measured outcome with a figure drawn in code.
-- **Projects:** the pinned stage with live, interactive frames (and a note when a project has no hosted demo).
+- **Projects:** the pinned stage with live, interactive frames and a dock to launch each app (and a note when a project has no hosted demo).
+- **Also built:** three more apps as tiles that open their code.
+- **Command palette:** press Ctrl+K (Cmd+K on a Mac, or /) to jump to any project, section or action. The keys 1 to 4 open a project directly.
 - **Backstage:** a pinned word with four pictures passing behind it, about the plays and films.
 - **Contact:** a card on a photograph of Bengaluru, and a cropped-name footer.
 
