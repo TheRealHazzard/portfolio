@@ -14,7 +14,7 @@ const N = projects.length;
 export default function Stage() {
   const wrap = useRef<HTMLElement>(null);
   const [active, setActive] = useState(0);
-  const [mounted, setMounted] = useState<number[]>([0, 1]);
+  const [mounted, setMounted] = useState<number[]>([]);
   const activeRef = useRef(0);
   const [armed, setArmed] = useState<number | null>(null);
 
@@ -26,6 +26,13 @@ export default function Stage() {
       const range = el.offsetHeight - window.innerHeight;
       const p = range > 0 ? Math.min(0.999, Math.max(0, -el.getBoundingClientRect().top / range)) : 0;
       const next = Math.min(N - 1, Math.floor(p * N));
+      // Nothing is requested until the stage is within a screen and a half of the viewport.
+      if (el.getBoundingClientRect().top < window.innerHeight * 1.5) {
+        setMounted((m) => {
+          const want = [next, Math.min(N - 1, next + 1)].filter((i) => !m.includes(i));
+          return want.length ? [...m, ...want] : m;
+        });
+      }
       if (next === activeRef.current) return;
       activeRef.current = next;
       setActive(next);
