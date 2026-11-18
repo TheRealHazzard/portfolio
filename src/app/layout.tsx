@@ -1,46 +1,33 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const hanken = Hanken_Grotesk({
+  variable: "--font-hanken",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Robin Thomas, Senior Software Engineer",
   description:
-    "Senior Software Engineer specializing in React, TypeScript, and Next.js. Building scalable, configuration-driven web platforms.",
+    "Senior front-end engineer in Bengaluru. Five years at Tekion making slow, brittle enterprise front-ends fast, with live projects you can use.",
 };
 
-const themeInitScript = `
-(function () {
-  try {
-    var stored = localStorage.getItem('theme');
-    var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (dark) document.documentElement.classList.add('dark');
-  } catch (e) {}
-})();
-`;
+export const viewport: Viewport = { themeColor: "#1a2039" };
+
+// Marks the page as script-enabled before first paint, so entrances can start hidden.
+// Without script, nothing is ever hidden.
+const jsFlag = `document.documentElement.classList.add('js')`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-      suppressHydrationWarning
-    >
+    <html lang="en" className={hanken.variable}>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script dangerouslySetInnerHTML={{ __html: jsFlag }} />
       </head>
-      <body className="min-h-full flex flex-col bg-canvas text-ink">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
