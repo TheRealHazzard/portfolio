@@ -5,7 +5,7 @@ import "./globals.css";
 const hanken = Hanken_Grotesk({
   variable: "--font-hanken",
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "800"],
   display: "swap",
 });
 

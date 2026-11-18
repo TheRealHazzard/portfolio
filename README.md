@@ -11,6 +11,7 @@ Robin writes, directs and acts in plays, so the page is a stage. A frame stays p
 ## What is on the page
 
 - **Introduction:** a card over a dim theatre, with a live before-and-after race (12 seconds against 5) and a card that shrinks into a ticket stub as you scroll.
+- **The route:** a transit-style map of the work. Three lines (Code, Stage and screen, Builds) run down the page, with interchange stations where they meet and a big year that follows you. Add a station by adding a row to `journey` in `src/lib/data.ts`.
 - **Work at Tekion:** four full-screen plates, each a measured outcome with a figure drawn in code.
 - **Projects:** the pinned stage with live, interactive frames and a dock to launch each app (and a note when a project has no hosted demo).
 - **Also built:** three more apps as tiles that open their code.

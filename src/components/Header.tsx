@@ -2,6 +2,7 @@ import { profile } from "@/lib/data";
 import JumpButton from "./JumpButton";
 
 const links = [
+  { href: "#route", label: "Route" },
   { href: "#work", label: "Work" },
   { href: "#projects", label: "Projects" },
   { href: "#backstage", label: "Backstage" },

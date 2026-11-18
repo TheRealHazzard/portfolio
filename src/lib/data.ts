@@ -8,6 +8,45 @@ export const profile = {
   place: "Bengaluru, India",
 };
 
+// The route: a transit-style map of the work. Add a station by adding a row here, in time order.
+// "on" lists the lines that stop at the station; two or more makes an interchange.
+// "stage" opens that project in the pinned stage; "href" adds a plain link.
+export type LineId = "code" | "stage" | "build";
+
+export const lines: { id: LineId; name: string }[] = [
+  { id: "code", name: "Code" },
+  { id: "stage", name: "Stage and screen" },
+  { id: "build", name: "Builds" },
+];
+
+export type Station = {
+  year: string;
+  title: string;
+  text: string;
+  on: LineId[];
+  stage?: number;
+  href?: string;
+  hrefLabel?: string;
+};
+
+// Years marked (?) are inferred from file dates and registration numbers: please confirm.
+export const journey: Station[] = [
+  { year: "2017", title: "VIT, Vellore", text: "B.Tech in computer science, finished with a CGPA of 9.09.", on: ["code"] },
+  { year: "2018", title: "Hollowness", text: "A short film. The scripts still live in a repo.", on: ["stage"] },
+  { year: "2020", title: "Arduino home automation", text: "Bluetooth lights switched from an Android phone, built as a university project.", on: ["code", "build"] },
+  { year: "2021", title: "Tekion, intern", text: "React.js and Ant Design, in a real product from the first week.", on: ["code"] },
+  { year: "2021", title: "Contact history, rebuilt", text: "As an associate engineer on CRM systems: an infinite-scroll view that lifted measured productivity by 22%.", on: ["code"], href: "#work", hrefLabel: "The Tekion plates" },
+  { year: "Always", title: "Plays", text: "Writing, directing and acting in stage plays, alongside the day job.", on: ["stage"], href: "#backstage", hrefLabel: "Backstage" },
+  { year: "2022", title: "Access control and security", text: "Software Engineer I, working on permissions and security.", on: ["code"] },
+  { year: "2023", title: "Micro-frontends", text: "Software Engineer II. Every team-owned core app moved to Module Federation, a 12 second bootstrap cut to 5, and a legacy configuration system rebuilt as a self-serve platform.", on: ["code"], href: "#work", hrefLabel: "The details" },
+  { year: "2026", title: "Senior Software Engineer", text: "Architecture and mentoring at Tekion.", on: ["code"] },
+  { year: "2026", title: "Tickerline", text: "Live crypto prices over a WebSocket, with candlestick charts.", on: ["build"], stage: 0 },
+  { year: "2026", title: "schema-ui", text: "Forms and tables from JSON, accessible and tested.", on: ["build"], stage: 1 },
+  { year: "2026", title: "mfe-starter", text: "The day job's micro-frontend work, rebuilt in the open as a starter.", on: ["build", "code"], stage: 2 },
+  { year: "2026", title: "perf-case-study", text: "A slow page fixed in five measured steps: Lighthouse 52 to 93.", on: ["build"], stage: 3 },
+  { year: "Today", title: "Bengaluru", text: "Still building and still on stage. More stations to come.", on: ["code", "stage", "build"] },
+];
+
 // Each plate is a piece of Tekion work, told as outcomes. No internal details.
 export const plates = [
   {

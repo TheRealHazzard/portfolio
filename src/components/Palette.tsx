@@ -47,6 +47,7 @@ export default function Palette() {
         keywords: `app project code ${m.text}`,
         run: () => open(m.code),
       })),
+      { id: "s-route", label: "The route", hint: "Section", keywords: "route map timeline life journey", run: () => hash("route") },
       { id: "s-work", label: "Work at Tekion", hint: "Section", keywords: "work tekion experience", run: () => hash("work") },
       { id: "s-projects", label: "Projects", hint: "Section", keywords: "projects stage apps", run: () => hash("projects") },
       { id: "s-backstage", label: "Backstage", hint: "Section", keywords: "backstage plays films", run: () => hash("backstage") },

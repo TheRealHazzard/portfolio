@@ -4,7 +4,7 @@
 const T1 = "var(--tone-1)";
 const T2 = "var(--tone-2)";
 const T3 = "var(--tone-3)";
-const INK = "var(--ink)";
+const INK = "var(--plate-ink, var(--ink))";
 
 function Frame({ children }: { children: React.ReactNode }) {
   return (

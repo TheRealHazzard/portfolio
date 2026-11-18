@@ -1,6 +1,7 @@
 import { plates } from "@/lib/data";
 import { ConfigFigure, HistoryFigure, MfeFigure, SpeedFigure } from "./Figures";
 
+const tones = { config: "green", mfe: "yellow", speed: "pink", history: "green" } as const;
 const figures = { config: ConfigFigure, mfe: MfeFigure, speed: SpeedFigure, history: HistoryFigure } as const;
 
 /**
@@ -16,7 +17,7 @@ export default function Plates() {
       {plates.map((p) => {
         const Figure = figures[p.id];
         return (
-          <article key={p.id} className="plate" data-reveal-group>
+          <article key={p.id} className="plate" data-tone={tones[p.id]}>
             <div className="plate-fig" data-reveal="0">
               <Figure />
             </div>
